@@ -39,7 +39,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 const Product: Model<IProduct> =
-  mongoose.models.TarotProduct ||
+  (mongoose.models.TarotProduct as Model<IProduct>) ??
   mongoose.model<IProduct>("TarotProduct", ProductSchema);
 
 export default Product;

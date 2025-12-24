@@ -24,10 +24,12 @@ export default function ProductPage() {
 
   useEffect(() => {
     if (!id) return;
+    const productId = Array.isArray(id) ? id[0] : id;
+    if (!productId) return;
 
     const fetchProduct = async () => {
       try {
-        const res = await api.get<Product>(`/products/${id}`);
+        const res = await api.get<Product>(`/products/${productId}`);
         setProduct(res.data);
       } catch (err) {
         console.error("Failed to fetch product:", err);
@@ -37,7 +39,7 @@ export default function ProductPage() {
       }
     };
 
-    fetchProduct();
+    void fetchProduct();
   }, [id]);
 
   const terms = [
@@ -61,7 +63,7 @@ export default function ProductPage() {
     );
   }
 
-  if (error || !product) {
+  if (error || !product || !id) {
     return (
       <main className="min-h-screen bg-(--color-bg-main)">
         <Header />
@@ -79,6 +81,9 @@ export default function ProductPage() {
       </main>
     );
   }
+
+  const productId = Array.isArray(id) ? id[0] : id;
+  if (!productId) return null;
 
   return (
     <main className="min-h-screen bg-(--color-bg-main)">

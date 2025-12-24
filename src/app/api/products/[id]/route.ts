@@ -34,7 +34,7 @@ export async function PUT(
   try {
     const { id } = await params;
     await connectDB();
-    const body = await request.json();
+    const body = (await request.json()) as Record<string, unknown>;
 
     const product = await Product.findByIdAndUpdate(id, body, {
       new: true,

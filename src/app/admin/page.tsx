@@ -70,7 +70,7 @@ export default function AdminPage() {
   };
 
   useEffect(() => {
-    fetchProducts();
+    void fetchProducts();
   }, []);
 
   // Handlers
@@ -292,7 +292,7 @@ export default function AdminPage() {
                 <Label htmlFor="category">Category</Label>
                 <Select
                   value={formData.category}
-                  onValueChange={(value) => handleCategoryChange(value as any)}
+                  onValueChange={handleCategoryChange}
                 >
                   <SelectTrigger className="w-full">
                     <SelectValue placeholder="Select Category" />

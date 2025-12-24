@@ -14,21 +14,27 @@ export async function GET(req: NextRequest) {
     return NextResponse.json(products);
   } catch (error) {
     console.error("GET /api/products error:", error);
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 },
+    );
   }
 }
 
 export async function POST(req: NextRequest) {
   try {
     await connectDB();
-    const body = await req.json();
-    
+    const body = (await req.json()) as Record<string, unknown>;
+
     // Basic validation could happen here, but Mongoose also handles schema validation
     const product = await Product.create(body);
-    
+
     return NextResponse.json(product, { status: 201 });
   } catch (error) {
     console.error("POST /api/products error:", error);
-    return NextResponse.json({ error: "Failed to create product" }, { status: 400 });
+    return NextResponse.json(
+      { error: "Failed to create product" },
+      { status: 400 },
+    );
   }
 }

@@ -35,7 +35,7 @@ const WrittenReadingsPage = () => {
       }
     };
 
-    fetchProducts();
+    void fetchProducts();
   }, []);
 
   // Map local images deterministically
@@ -45,9 +45,9 @@ const WrittenReadingsPage = () => {
       "/bg-less-2.png",
       "/bg-less-3.png",
       "/bg-less-4.png",
-      "/bg-less-5.png"
+      "/bg-less-5.png",
     ];
-    return images[index % images.length] || "/bg-less-1.png";
+    return images[index % images.length] ?? "/bg-less-1.png";
   };
 
   return (

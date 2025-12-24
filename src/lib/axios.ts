@@ -10,9 +10,9 @@ export const api = axios.create({
 
 api.interceptors.response.use(
   (response) => response,
-  (error) => {
+  (error: { response?: { data?: unknown }; message: string }) => {
     // Basic error logging
-    console.error("API Error:", error.response?.data || error.message);
-    return Promise.reject(error);
+    console.error("API Error:", error.response?.data ?? error.message);
+    return Promise.reject(new Error(error.message));
   },
 );
