@@ -10,7 +10,7 @@ export default function SectionBackgroundWrapper({
   children,
 }: SectionBackgroundWrapperProps) {
   return (
-    <div className="relative w-full">
+    <div className="relative w-full bg-[#121212]">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -18,7 +18,6 @@ export default function SectionBackgroundWrapper({
           alt="Section Background"
           fill
           className="object-cover"
-          placeholder="blur"
           sizes="100vw"
         />
       </div>

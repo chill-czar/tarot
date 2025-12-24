@@ -7,13 +7,12 @@ export default function Hero() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0"> 
         <Image
           src={HeroBg}
           alt="Mystical background with a woman in white dress"
           fill
           priority
-          placeholder="blur"
           className="object-cover object-top md:object-center"
           sizes="100vw"
         />
@@ -41,7 +40,6 @@ export default function Hero() {
                   fill
                   className="pointer-events-none object-contain"
                   priority
-                  placeholder="blur"
                   sizes="(max-width: 640px) 195px, (max-width: 768px) 288px, (max-width: 1024px) 460px, 540px"
                 />
                 <span className="font-ui relative z-10 -mt-4 ml-10 text-[10px] font-semibold tracking-widest text-(--color-text-primary) uppercase sm:-mt-5 sm:ml-12 sm:text-[11px] md:text-sm lg:text-base">
@@ -59,7 +57,6 @@ export default function Hero() {
                   fill
                   className="pointer-events-none object-contain"
                   priority
-                  placeholder="blur"
                   sizes="(max-width: 640px) 195px, (max-width: 768px) 288px, (max-width: 1024px) 460px, 540px"
                 />
                 <span className="font-ui relative z-10 -mt-4 -ml-10 text-[10px] font-semibold tracking-widest text-(--color-text-primary) uppercase sm:-mt-5 sm:-ml-12 sm:text-[11px] md:text-sm lg:text-base">

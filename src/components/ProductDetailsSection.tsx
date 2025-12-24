@@ -78,7 +78,6 @@ export default function ProductDetailsSection({
                 fill
                 className="pointer-events-none object-contain"
                 priority
-                placeholder="blur"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 448px, 448px"
               />
               <span className="font-ui relative z-10 -mt-4 -ml-8 text-sm font-semibold tracking-widest text-(--color-text-primary) uppercase md:-mt-5 md:-ml-10 md:text-base lg:text-lg">

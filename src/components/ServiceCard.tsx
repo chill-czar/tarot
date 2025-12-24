@@ -32,7 +32,7 @@ export default function ServiceCard({
 
   return (
     /* 1. OUTER CONTAINER: Enforces the Tarot Card Shape (9:16 ratio) */
-    <div className="group relative mx-auto aspect-9/16 w-full max-w-[340px] transition-transform select-none hover:scale-[1.02] md:max-w-[380px]">
+    <div className="group relative mx-auto aspect-9/16 w-full max-w-[340px] bg-[#f8f5f0] transition-transform select-none hover:scale-[1.02] md:max-w-[380px]">
       {/* 2. BACKGROUND: The Heaven's Gate Frame */}
       <Image
         src={ServiceCardBg} // Your gate frame image
@@ -40,7 +40,6 @@ export default function ServiceCard({
         fill
         className="pointer-events-none z-0 object-fill"
         priority={priority}
-        placeholder="blur"
         sizes="(max-width: 768px) 100vw, 380px"
       />
 
