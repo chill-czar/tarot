@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  /* Semantic Font Variables */
+  --font-heading: var(--font-playfair), serif;
+  --font-body: var(--font-montserrat), sans-serif;
+  --font-ui: var(--font-montserrat), sans-serif;
+
+  /* Map standard Tailwind utilities to semantic fonts */
+  --font-serif: var(--font-heading);
+  --font-sans: var(--font-body);
+}
+
+:root {
+  /* Brand / Text */
+  --color-text-primary: #3D3123;
+  --color-text-secondary: #594D3F;
+
+  /* Backgrounds */
+  --color-bg-main: #FDFBF7;
+  --color-bg-surface: #ECE4D9;
+  --color-bg-stone: #D7CCB8;
+  --color-bg-vein: #D6D2C4;
+
+  /* Borders & Dividers */
+  --color-border-subtle: #D6D2C4;
+  --color-border-focus: #8E8478;
+
+  /* CTA & Accent */
+  --color-accent-primary: #A68E6A;
+  --color-accent-light: #D1B894;
+  --color-accent-dark: #7D6B53;
+  --color-accent-highlight: #F5F1E9;
+
+  /* Muted / Utility */
+  --color-utility-muted: #8E8478;
+}
