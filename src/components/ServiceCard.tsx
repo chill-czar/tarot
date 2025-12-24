@@ -17,16 +17,15 @@ export default function ServiceCard({
   title,
   description,
   imageSrc,
-  ctaText = "Explore",
+  ctaText,
   ctaLink = "#",
-  variant = "text",
+  variant,
   price,
   duration,
 }: ServiceCardProps) {
   const isDetailed = !!price;
-  const effectiveVariant = isDetailed ? "button" : variant;
-  const effectiveCtaText =
-    isDetailed && ctaText === "Explore" ? "Book Now" : ctaText;
+  const effectiveVariant = isDetailed ? "button" : (variant ?? "text");
+  const effectiveCtaText = ctaText ?? (isDetailed ? "Book Now" : "Explore");
 
   return (
     /* 1. OUTER CONTAINER: Enforces the Tarot Card Shape (9:16 ratio) */

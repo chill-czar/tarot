@@ -6,27 +6,30 @@ export default function WhatIDo() {
   
     {
       id: 1,
-      title: "Heal with DD",
-      description: '"Made with an intention, to awaken yours."',
-      imageSrc: "/bg-less.png",
+      title: "Live Interactive Readings",
+      description: "Real-time spiritual counseling to illuminate your path. Connect deeply with your inner wisdom through immediate, intuitive clarity.",
+      imageSrc: "/bg-less-1.png",
       variant: "button" as const,
-      ctaText: "View Details",
+      ctaText: "Book Live Session",
+      ctaLink: "/tarotwithdd/live-readings",
     },
     {
       id: 2,
-      title: "Heal with DD",
-      description: '"Made with an intention, to awaken yours."',
-      imageSrc: "/bg-less.png",
+      title: "Comprehensive Written Analysis",
+      description: "A soul-level exploration of your energy and destiny, delivered as a detailed guide to navigate life's most complex transformations.",
+      imageSrc: "/bg-less-2.png",
       variant: "button" as const,
-      ctaText: "View Details",
+      ctaText: "Order Reading",
+      ctaLink: "/tarotwithdd/written-readings",
     },
     {
       id: 3,
-      title: "Heal with DD",
-      description: '"Made with an intention, to awaken yours."',
-      imageSrc: "/bg-less.png",
+      title: "Intuitive Spiritual Guidance",
+      description: "Align your inner frequency with your higher purpose. Weave ancient archetypes into a modern map for your spiritual awakening.",
+      imageSrc: "/bg-less-3.png",
       variant: "button" as const,
-      ctaText: "View Details",
+      ctaText: "Explore More",
+      ctaLink: "/tarotwithdd",
     },
   ];
 
@@ -50,6 +53,7 @@ export default function WhatIDo() {
               imageSrc={service.imageSrc}
               variant={service.variant}
               ctaText={service.ctaText}
+              ctaLink={service.ctaLink}
             />
           ))}
         </div>
