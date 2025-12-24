@@ -18,7 +18,7 @@ const ReviewsPage = () => {
             {/* Placeholder Content */}
             <div className="mx-auto max-w-3xl rounded-2xl border border-(--color-border-subtle) bg-(--color-bg-surface)/50 p-8 backdrop-blur-sm">
               <p className="font-body text-lg text-(--color-text-secondary) italic">
-                "Customer reviews and testimonials will appear here."
+                &#34;Customer reviews and testimonials will appear here.&#34;
               </p>
             </div>
           </div>

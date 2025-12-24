@@ -1,8 +1,27 @@
 import React from "react";
+import { type Metadata } from "next";
 import Footer from "~/components/Footer";
 import Header from "~/components/Header";
 import SectionBackgroundWrapper from "~/components/SectionBackgroundWrapper";
 import ServiceCard from "~/components/ServiceCard";
+
+export const metadata: Metadata = {
+  title: "Written Tarot Readings | Detailed Spiritual Analysis | Tarot with DD",
+  description: "Receive comprehensive written tarot readings delivered directly to your inbox. Deep insights and spiritual guidance at your own pace for life's important questions.",
+  keywords: ["written tarot readings", "email tarot readings", "detailed tarot analysis", "spiritual guidance", "tarot consultation", "intuitive reading"],
+  openGraph: {
+    title: "Written Tarot Readings | Detailed Spiritual Analysis | Tarot with DD",
+    description: "Receive comprehensive written tarot readings delivered directly to your inbox. Deep insights and spiritual guidance at your own pace.",
+    images: [
+      {
+        url: '/tarot.png',
+        width: 1200,
+        height: 630,
+        alt: 'Written Tarot Readings - Detailed Spiritual Analysis',
+      },
+    ],
+  },
+};
 
 const WrittenReadingsPage = () => {
   const services = [

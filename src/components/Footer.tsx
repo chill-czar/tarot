@@ -39,7 +39,7 @@ export default function Footer() {
               </svg>
             </div>
             <p className="font-body leading-relaxed font-medium text-(--color-text-primary)">
-              Guiding your soul's journey with intuition and ancient wisdom.
+              Guiding your soul&#39;s journey with intuition and ancient wisdom.
             </p>
           </div>
 
