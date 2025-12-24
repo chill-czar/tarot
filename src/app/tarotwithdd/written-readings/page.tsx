@@ -26,7 +26,9 @@ const WrittenReadingsPage = () => {
       try {
         const res = await api.get<Product[]>("/products?active=true");
         // Strict category filtering
-        const filtered = res.data.filter(p => p.category === "Written Reading");
+        const filtered = res.data.filter(
+          (p) => p.category === "Written Reading",
+        );
         setProducts(filtered);
       } catch (error) {
         console.error("Failed to fetch written readings:", error);
@@ -54,7 +56,7 @@ const WrittenReadingsPage = () => {
     <div>
       <Header />
       <SectionBackgroundWrapper>
-        <section className="w-full py-20 min-h-[60vh]">
+        <section className="min-h-[60vh] w-full py-20">
           <div className="container mx-auto px-4">
             {/* Section Heading */}
             <div className="mb-12 flex justify-center md:mb-16">
@@ -68,9 +70,10 @@ const WrittenReadingsPage = () => {
                 <Loader2 className="h-10 w-10 animate-spin text-(--color-accent-dark)" />
               </div>
             ) : products.length === 0 ? (
-              <div className="text-center py-20">
+              <div className="py-20 text-center">
                 <p className="font-body text-xl text-(--color-text-secondary)">
-                  No written readings available at the moment. Please check back later.
+                  No written readings available at the moment. Please check back
+                  later.
                 </p>
               </div>
             ) : (

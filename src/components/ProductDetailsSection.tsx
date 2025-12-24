@@ -1,13 +1,14 @@
 import React from "react";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
+import { HeroCtaRight } from "~/lib/images";
 
 interface ProductDetailsSectionProps {
   title: string;
   price: string;
   description: string;
   terms: string[];
-  imageSrc: string;
+  imageSrc: string | StaticImageData;
   ctaText?: string;
   ctaLink?: string;
 }
@@ -72,13 +73,15 @@ export default function ProductDetailsSection({
           <Link href={ctaLink} className="w-full max-w-xs md:max-w-md">
             <button className="group relative flex aspect-12/5 w-full items-center justify-center transition-transform hover:scale-105 active:scale-95">
               <Image
-                src="/hero-cta-bg-right.png"
+                src={HeroCtaRight}
                 alt={ctaText}
                 fill
                 className="pointer-events-none object-contain"
                 priority
+                placeholder="blur"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 448px, 448px"
               />
-              <span className="font-ui relative z-10 -ml-8 -mt-4 text-sm font-semibold tracking-widest text-(--color-text-primary) uppercase md:-ml-10 md:-mt-5 md:text-base lg:text-lg">
+              <span className="font-ui relative z-10 -mt-4 -ml-8 text-sm font-semibold tracking-widest text-(--color-text-primary) uppercase md:-mt-5 md:-ml-10 md:text-base lg:text-lg">
                 {ctaText}
               </span>
             </button>

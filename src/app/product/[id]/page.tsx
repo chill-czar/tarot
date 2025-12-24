@@ -73,7 +73,8 @@ export default function ProductPage() {
               Product Not Found
             </h2>
             <p className="font-body text-(--color-text-secondary)">
-              The product you are looking for does not exist or has been removed.
+              The product you are looking for does not exist or has been
+              removed.
             </p>
           </div>
         </SectionBackgroundWrapper>

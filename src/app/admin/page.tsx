@@ -75,7 +75,7 @@ export default function AdminPage() {
 
   // Handlers
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -132,10 +132,16 @@ export default function AdminPage() {
   };
 
   return (
-    <div className="container mx-auto p-6 md:p-12 min-h-screen">
+    <div className="p-6 md:p-10">
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
-        <h1 className="text-3xl font-bold tracking-tight">Admin Dashboard</h1>
+      <div className="mb-8 flex items-center justify-between">
+        <h3 className="text-2xl font-bold tracking-tight">
+          {view === "list"
+            ? "Product Management"
+            : isEditing
+              ? "Edit Product"
+              : "Add New Product"}
+        </h3>
         {view === "list" && (
           <Button onClick={addNew}>
             <Plus className="mr-2 h-4 w-4" /> Add Product
@@ -150,7 +156,7 @@ export default function AdminPage() {
 
       {loading && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/50">
-          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+          <Loader2 className="text-primary h-8 w-8 animate-spin" />
         </div>
       )}
 
@@ -162,7 +168,7 @@ export default function AdminPage() {
           </CardHeader>
           <CardContent>
             {products.length === 0 ? (
-              <p className="text-center text-muted-foreground py-8">
+              <p className="text-muted-foreground py-8 text-center">
                 No products found. Create one!
               </p>
             ) : (
@@ -205,7 +211,7 @@ export default function AdminPage() {
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="text-red-500 hover:text-red-700 hover:bg-red-50"
+                          className="text-red-500 hover:bg-red-50 hover:text-red-700"
                           onClick={() => p._id && handleDelete(p._id)}
                         >
                           <Trash2 className="h-4 w-4" />
@@ -222,13 +228,12 @@ export default function AdminPage() {
 
       {/* Form View */}
       {view === "form" && (
-        <Card className="max-w-4xl mx-auto">
+        <Card className="mx-auto max-w-4xl">
           <CardHeader>
             <CardTitle>{isEditing ? "Edit Product" : "New Product"}</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
-              
               {/* Basic Info */}
               <div className="space-y-2">
                 <Label htmlFor="title">Title</Label>
@@ -299,7 +304,9 @@ export default function AdminPage() {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="Live Reading">Live Reading</SelectItem>
-                    <SelectItem value="Written Reading">Written Reading</SelectItem>
+                    <SelectItem value="Written Reading">
+                      Written Reading
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </div>

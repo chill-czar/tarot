@@ -1,14 +1,15 @@
 import React from "react";
 import ServiceCard from "./ServiceCard";
+import { BgLess1, BgLess2, BgLess3 } from "~/lib/images";
 
 export default function WhatIDo() {
   const services = [
-  
     {
       id: 1,
       title: "Live Interactive Readings",
-      description: "Real-time spiritual counseling to illuminate your path. Connect deeply with your inner wisdom through immediate, intuitive clarity.",
-      imageSrc: "/bg-less-1.png",
+      description:
+        "Real-time spiritual counseling to illuminate your path. Connect deeply with your inner wisdom through immediate, intuitive clarity.",
+      imageSrc: BgLess1,
       variant: "button" as const,
       ctaText: "Book Live Session",
       ctaLink: "/tarotwithdd/live-readings",
@@ -16,8 +17,9 @@ export default function WhatIDo() {
     {
       id: 2,
       title: "Comprehensive Written Analysis",
-      description: "A soul-level exploration of your energy and destiny, delivered as a detailed guide to navigate life's most complex transformations.",
-      imageSrc: "/bg-less-2.png",
+      description:
+        "A soul-level exploration of your energy and destiny, delivered as a detailed guide to navigate life's most complex transformations.",
+      imageSrc: BgLess2,
       variant: "button" as const,
       ctaText: "Order Reading",
       ctaLink: "/tarotwithdd/written-readings",
@@ -25,8 +27,9 @@ export default function WhatIDo() {
     {
       id: 3,
       title: "Intuitive Spiritual Guidance",
-      description: "Align your inner frequency with your higher purpose. Weave ancient archetypes into a modern map for your spiritual awakening.",
-      imageSrc: "/bg-less-3.png",
+      description:
+        "Align your inner frequency with your higher purpose. Weave ancient archetypes into a modern map for your spiritual awakening.",
+      imageSrc: BgLess3,
       variant: "button" as const,
       ctaText: "Explore More",
       ctaLink: "/tarotwithdd",
@@ -45,7 +48,7 @@ export default function WhatIDo() {
 
         {/* Cards Grid */}
         <div className="flex flex-col items-center justify-center gap-8 md:flex-row md:flex-wrap md:items-stretch lg:gap-12">
-          {services.map((service) => (
+          {services.map((service, index) => (
             <ServiceCard
               key={service.id}
               title={service.title}
@@ -54,6 +57,7 @@ export default function WhatIDo() {
               variant={service.variant}
               ctaText={service.ctaText}
               ctaLink={service.ctaLink}
+              priority={index === 0}
             />
           ))}
         </div>

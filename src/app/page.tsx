@@ -8,17 +8,27 @@ import Footer from "~/components/Footer";
 
 export const metadata: Metadata = {
   title: "Tarot with DD | Professional Tarot Readings & Spiritual Guidance",
-  description: "Experience transformative tarot readings with DD. Live interactive sessions and comprehensive written readings to unlock your spiritual path and inner wisdom. Awaken your soul today.",
-  keywords: ["tarot readings", "spiritual guidance", "professional tarot", "live readings", "written readings", "spiritual awakening", "intuition development"],
+  description:
+    "Experience transformative tarot readings with DD. Live interactive sessions and comprehensive written readings to unlock your spiritual path and inner wisdom. Awaken your soul today.",
+  keywords: [
+    "tarot readings",
+    "spiritual guidance",
+    "professional tarot",
+    "live readings",
+    "written readings",
+    "spiritual awakening",
+    "intuition development",
+  ],
   openGraph: {
     title: "Tarot with DD | Professional Tarot Readings & Spiritual Guidance",
-    description: "Experience transformative tarot readings with DD. Live interactive sessions and comprehensive written readings to unlock your spiritual path and inner wisdom.",
+    description:
+      "Experience transformative tarot readings with DD. Live interactive sessions and comprehensive written readings to unlock your spiritual path and inner wisdom.",
     images: [
       {
-        url: '/tarot.png',
+        url: "/tarot.png",
         width: 1200,
         height: 630,
-        alt: 'Tarot with DD - Professional Tarot Readings',
+        alt: "Tarot with DD - Professional Tarot Readings",
       },
     ],
   },

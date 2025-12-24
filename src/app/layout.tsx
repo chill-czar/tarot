@@ -2,10 +2,12 @@ import "~/styles/globals.css";
 
 import { type Metadata } from "next";
 import { Playfair_Display, Montserrat } from "next/font/google";
+import ServiceWorkerRegistration from "~/components/ServiceWorkerRegistration";
 
 export const metadata: Metadata = {
   title: "Tarot with DD | Professional Tarot Readings & Spiritual Guidance",
-  description: "Experience transformative tarot readings with DD. Live interactive sessions and comprehensive written readings to unlock your spiritual path and inner wisdom. Awaken your soul today.",
+  description:
+    "Experience transformative tarot readings with DD. Live interactive sessions and comprehensive written readings to unlock your spiritual path and inner wisdom. Awaken your soul today.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
@@ -27,7 +29,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${montserrat.variable}`}>
-      <body>{children}</body>
+      <body>
+        <ServiceWorkerRegistration />
+        {children}
+      </body>
     </html>
   );
 }

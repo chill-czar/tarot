@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { HeroBg, HeroCtaLeft, HeroCtaRight } from "~/lib/images";
 
 export default function Hero() {
   return (
@@ -8,10 +9,11 @@ export default function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/hero-bg.png"
+          src={HeroBg}
           alt="Mystical background with a woman in white dress"
           fill
           priority
+          placeholder="blur"
           className="object-cover object-top md:object-center"
           sizes="100vw"
         />
@@ -34,11 +36,13 @@ export default function Hero() {
             <Link href="/tarotwithdd/live-readings">
               <button className="group relative flex aspect-12/5 w-[195px] items-center justify-center transition-transform hover:scale-105 active:scale-95 sm:w-72 md:w-[460px] lg:w-[540px]">
                 <Image
-                  src="/hero-cta-bg-left.png"
+                  src={HeroCtaLeft}
                   alt="Live Readings"
                   fill
                   className="pointer-events-none object-contain"
                   priority
+                  placeholder="blur"
+                  sizes="(max-width: 640px) 195px, (max-width: 768px) 288px, (max-width: 1024px) 460px, 540px"
                 />
                 <span className="font-ui relative z-10 -mt-4 ml-10 text-[10px] font-semibold tracking-widest text-(--color-text-primary) uppercase sm:-mt-5 sm:ml-12 sm:text-[11px] md:text-sm lg:text-base">
                   Live Readings
@@ -50,11 +54,13 @@ export default function Hero() {
             <Link href="/tarotwithdd/written-readings">
               <button className="group relative flex aspect-12/5 w-[195px] items-center justify-center transition-transform hover:scale-105 active:scale-95 sm:w-72 md:w-[460px] lg:w-[540px]">
                 <Image
-                  src="/hero-cta-bg-right.png"
+                  src={HeroCtaRight}
                   alt="Written Readings"
                   fill
                   className="pointer-events-none object-contain"
                   priority
+                  placeholder="blur"
+                  sizes="(max-width: 640px) 195px, (max-width: 768px) 288px, (max-width: 1024px) 460px, 540px"
                 />
                 <span className="font-ui relative z-10 -mt-4 -ml-10 text-[10px] font-semibold tracking-widest text-(--color-text-primary) uppercase sm:-mt-5 sm:-ml-12 sm:text-[11px] md:text-sm lg:text-base">
                   Written Readings

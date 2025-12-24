@@ -1,16 +1,18 @@
 import React from "react";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
+import { ServiceCardBg } from "~/lib/images";
 
 interface ServiceCardProps {
   title: string;
   description: string;
-  imageSrc: string; // The illustration inside the gate
+  imageSrc: string | StaticImageData; // The illustration inside the gate
   ctaText?: string;
   ctaLink?: string;
   variant?: "text" | "button";
   price?: string;
   duration?: string;
+  priority?: boolean;
 }
 
 export default function ServiceCard({
@@ -22,6 +24,7 @@ export default function ServiceCard({
   variant,
   price,
   duration,
+  priority = false,
 }: ServiceCardProps) {
   const isDetailed = !!price;
   const effectiveVariant = isDetailed ? "button" : (variant ?? "text");
@@ -29,26 +32,24 @@ export default function ServiceCard({
 
   return (
     /* 1. OUTER CONTAINER: Enforces the Tarot Card Shape (9:16 ratio) */
-    <div className="group relative w-full max-w-[340px] md:max-w-[380px] aspect-9/16 mx-auto select-none transition-transform hover:scale-[1.02]">
-      
-      {/* 2. BACKGROUND: The Heaven's Gate Frame */ }
+    <div className="group relative mx-auto aspect-9/16 w-full max-w-[340px] transition-transform select-none hover:scale-[1.02] md:max-w-[380px]">
+      {/* 2. BACKGROUND: The Heaven's Gate Frame */}
       <Image
-        src="/service-card-bg.png" // Your gate frame image
+        src={ServiceCardBg} // Your gate frame image
         alt=""
         fill
-        className="pointer-events-none object-fill z-0"
-        priority
+        className="pointer-events-none z-0 object-fill"
+        priority={priority}
+        placeholder="blur"
         sizes="(max-width: 768px) 100vw, 380px"
       />
 
-      {/* 3. SAFE ZONE: Absolutely positioned INSIDE the pillars/arch */ }
+      {/* 3. SAFE ZONE: Absolutely positioned INSIDE the pillars/arch */}
       {/* We use percentages for padding to ensure it scales perfectly with the image */}
-      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center
-                      pt-[15%] pb-[10%] px-[18%] gap-4 md:gap-6"> 
-        
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4 px-[18%] pt-[15%] pb-[10%] md:gap-6">
         {/* --- SECTION A: ILLUSTRATION --- */}
-        <div className="relative flex w-full items-center justify-center shrink-0">
-          <div className="relative w-full aspect-square max-h-[140px] md:max-h-[200px]">
+        <div className="relative flex w-full shrink-0 items-center justify-center">
+          <div className="relative aspect-square max-h-[140px] w-full md:max-h-[200px]">
             <Image
               src={imageSrc}
               alt={title}
@@ -60,24 +61,20 @@ export default function ServiceCard({
         </div>
 
         {/* --- SECTION B: TEXT CONTENT --- */}
-        <div className="flex flex-col items-center justify-center shrink-0 w-full gap-2 md:gap-3 text-center">
-          
+        <div className="flex w-full shrink-0 flex-col items-center justify-center gap-2 text-center md:gap-3">
           {/* Title - Gradient + Subtle Glow */}
-          <h3 className="font-heading text-2xl md:text-3xl leading-tight line-clamp-2
-                         bg-linear-to-b from-[#6D5E4D] to-[#3D3123] bg-clip-text text-transparent
-                         drop-shadow-[0_1px_1px_rgba(255,255,255,0.4)]">
+          <h3 className="font-heading line-clamp-2 bg-linear-to-b from-[#6D5E4D] to-[#3D3123] bg-clip-text text-2xl leading-tight text-transparent drop-shadow-[0_1px_1px_rgba(255,255,255,0.4)] md:text-3xl">
             {title}
           </h3>
 
           {/* Price / Duration (Optional) */}
           {isDetailed && (
             <div className="flex flex-col items-center leading-none">
-              <span className="font-heading text-xl md:text-2xl font-bold text-(--color-accent-dark)
-                             drop-shadow-[0_1px_1px_rgba(255,255,255,0.3)]">
+              <span className="font-heading text-xl font-bold text-(--color-accent-dark) drop-shadow-[0_1px_1px_rgba(255,255,255,0.3)] md:text-2xl">
                 {price}
               </span>
               {duration && (
-                <span className="font-body text-xs md:text-sm font-medium text-(--color-text-secondary) mt-1">
+                <span className="font-body mt-1 text-xs font-medium text-(--color-text-secondary) md:text-sm">
                   {duration}
                 </span>
               )}
@@ -85,35 +82,29 @@ export default function ServiceCard({
           )}
 
           {/* Description - Refined color */}
-          <p className="font-body text-sm md:text-base leading-relaxed text-[#594D3F] line-clamp-3 max-w-[90%]">
+          <p className="font-body line-clamp-3 max-w-[90%] text-sm leading-relaxed text-[#594D3F] md:text-base">
             {description}
           </p>
         </div>
 
         {/* --- SECTION C: CTA --- */}
-        <div className="shrink-0 mt-2">
+        <div className="mt-2 shrink-0">
           {effectiveVariant === "button" ? (
             <Link
               href={ctaLink}
-              className="inline-flex h-9 md:h-10 items-center justify-center rounded-full 
-                         border border-[#A68E6A]/40
-                         bg-linear-to-b from-[#C5A26B] to-[#927848]
-                         px-6 md:px-8 text-xs md:text-sm font-semibold tracking-wide uppercase 
-                         text-white shadow-sm 
-                         transition-all hover:shadow-md hover:scale-105 active:scale-95"
+              className="inline-flex h-9 items-center justify-center rounded-full border border-[#A68E6A]/40 bg-linear-to-b from-[#C5A26B] to-[#927848] px-6 text-xs font-semibold tracking-wide text-white uppercase shadow-sm transition-all hover:scale-105 hover:shadow-md active:scale-95 md:h-10 md:px-8 md:text-sm"
             >
               {effectiveCtaText}
             </Link>
           ) : (
             <Link
               href={ctaLink}
-              className="font-heading text-xl md:text-2xl text-(--color-text-primary) italic hover:text-[#C5A26B] transition-colors"
+              className="font-heading text-xl text-(--color-text-primary) italic transition-colors hover:text-[#C5A26B] md:text-2xl"
             >
               {effectiveCtaText}
             </Link>
           )}
         </div>
-
       </div>
     </div>
   );
