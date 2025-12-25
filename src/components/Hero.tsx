@@ -16,8 +16,6 @@ export default function Hero() {
           className="object-cover object-top md:object-center"
           sizes="100vw"
         />
-        {/* Subtle overlay for text readability if needed, though image seems to have it */}
-        {/* <div className="absolute inset-0 bg-black/10 mix-blend-overlay" /> */}
       </div>
 
       {/* Content Container */}

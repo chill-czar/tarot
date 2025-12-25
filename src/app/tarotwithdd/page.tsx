@@ -3,6 +3,7 @@ import Footer from "~/components/Footer";
 import Header from "~/components/Header";
 import SectionBackgroundWrapper from "~/components/SectionBackgroundWrapper";
 import ServiceCard from "~/components/ServiceCard";
+import { BgLess1, BgLess2 } from "~/lib/images";
 
 const TarotLandingPage = () => {
   const services = [
@@ -11,7 +12,7 @@ const TarotLandingPage = () => {
       title: "Live Readings",
       description:
         "Connect in real-time for immediate guidance and interactive clarity.",
-      imageSrc: "/bg-less.png", // Using existing placeholder
+      imageSrc: BgLess1,
       variant: "button" as const,
       ctaText: "Check Now",
       ctaLink: "/tarotwithdd/live-readings",
@@ -21,7 +22,7 @@ const TarotLandingPage = () => {
       title: "Written Readings",
       description:
         "Receive detailed, thoughtful insights delivered directly to your inbox.",
-      imageSrc: "/bg-less.png", // Using existing placeholder
+      imageSrc: BgLess2,
       variant: "button" as const,
       ctaText: "Check Now",
       ctaLink: "/tarotwithdd/written-readings",

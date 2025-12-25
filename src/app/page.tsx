@@ -5,6 +5,7 @@ import WhatIDo from "~/components/WhatIDo";
 import HowItWorks from "~/components/HowItWorks";
 import SectionBackgroundWrapper from "~/components/SectionBackgroundWrapper";
 import Footer from "~/components/Footer";
+import { TarotMain } from "~/lib/images";
 
 export const metadata: Metadata = {
   title: "Tarot with DD | Professional Tarot Readings & Spiritual Guidance",
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
       "Experience transformative tarot readings with DD. Live interactive sessions and comprehensive written readings to unlock your spiritual path and inner wisdom.",
     images: [
       {
-        url: "/tarot.png",
+        url: TarotMain.src,
         width: 1200,
         height: 630,
         alt: "Tarot with DD - Professional Tarot Readings",

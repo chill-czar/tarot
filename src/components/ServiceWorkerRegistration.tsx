@@ -1,14 +1,22 @@
 "use client";
 
 import { useEffect } from "react";
+import {
+  BgLess1,
+  BgLess2,
+  BgLess3,
+  BgLess4,
+  BgLess5,
+  TarotMain,
+} from "~/lib/images";
 
 const NON_CRITICAL_ASSETS = [
-  "/bg-less-1.png",
-  "/bg-less-2.png",
-  "/bg-less-3.png",
-  "/bg-less-4.png",
-  "/bg-less-5.png",
-  "/tarot.png",
+  BgLess1.src,
+  BgLess2.src,
+  BgLess3.src,
+  BgLess4.src,
+  BgLess5.src,
+  TarotMain.src,
 ];
 
 export default function ServiceWorkerRegistration() {

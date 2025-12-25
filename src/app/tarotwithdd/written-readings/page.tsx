@@ -7,6 +7,13 @@ import SectionBackgroundWrapper from "~/components/SectionBackgroundWrapper";
 import ServiceCard from "~/components/ServiceCard";
 import { api } from "~/lib/axios";
 import { Loader2 } from "lucide-react";
+import {
+  BgLess1,
+  BgLess2,
+  BgLess3,
+  BgLess4,
+  BgLess5,
+} from "~/lib/images";
 
 interface Product {
   _id: string;
@@ -24,12 +31,8 @@ const WrittenReadingsPage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await api.get<Product[]>("/products?active=true");
-        // Strict category filtering
-        const filtered = res.data.filter(
-          (p) => p.category === "Written Reading",
-        );
-        setProducts(filtered);
+        const res = await api.get<Product[]>("/products?active=true&category=Written Reading");
+        setProducts(res.data);
       } catch (error) {
         console.error("Failed to fetch written readings:", error);
       } finally {
@@ -42,14 +45,8 @@ const WrittenReadingsPage = () => {
 
   // Map local images deterministically
   const getProductImage = (index: number) => {
-    const images = [
-      "/bg-less-1.png",
-      "/bg-less-2.png",
-      "/bg-less-3.png",
-      "/bg-less-4.png",
-      "/bg-less-5.png",
-    ];
-    return images[index % images.length] ?? "/bg-less-1.png";
+    const images = [BgLess1, BgLess2, BgLess3, BgLess4, BgLess5];
+    return images[index % images.length] ?? BgLess1;
   };
 
   return (

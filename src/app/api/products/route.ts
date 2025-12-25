@@ -7,9 +7,19 @@ export async function GET(req: NextRequest) {
     await connectDB();
     const { searchParams } = new URL(req.url);
     const activeOnly = searchParams.get("active") === "true";
+    const category = searchParams.get("category");
 
-    const filter = activeOnly ? { isActive: true } : {};
-    const products = await Product.find(filter).sort({ createdAt: -1 }).lean();
+    const filter: Record<string, string | boolean> = activeOnly
+      ? { isActive: true }
+      : {};
+    if (category) {
+      filter.category = category;
+    }
+
+    const products = await Product.find(filter)
+      .select("title description price duration category isActive")
+      .sort({ createdAt: -1 })
+      .lean();
 
     return NextResponse.json(products);
   } catch (error) {

@@ -8,6 +8,7 @@ import ProductDetailsSection from "~/components/ProductDetailsSection";
 import SectionBackgroundWrapper from "~/components/SectionBackgroundWrapper";
 import { api } from "~/lib/axios";
 import { Loader2 } from "lucide-react";
+import { TarotMain } from "~/lib/images";
 
 interface Product {
   _id: string;
@@ -95,7 +96,7 @@ export default function ProductPage() {
           price={`₹${product.price}`}
           description={product.description}
           terms={terms}
-          imageSrc="/tarot.png"
+          imageSrc={TarotMain}
           ctaText="Book Now"
         />
       </SectionBackgroundWrapper>
